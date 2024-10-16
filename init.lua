@@ -35,7 +35,7 @@ function M:peek()
 		)
 	-- preview torrent
 	else
-		ya.preview_widgets(self, { ui.Paragraph.parse(self.area, lines):wrap(ui.Paragraph.WRAP) })
+		ya.preview_widgets(self, { ui.Text.parse(lines):area(self.area):wrap(ui.Text.WRAP) })
 	end
 end
 
