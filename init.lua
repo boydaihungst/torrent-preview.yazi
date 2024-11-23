@@ -1,13 +1,20 @@
 local M = {}
-
+local function fail(s, ...)
+	ya.notify({ title = "Torrent preview", content = s:format(...), timeout = 5, level = "error" })
+end
 function M:peek()
 	-- launch process
-	local process, code = Command("transmission-show")
+	local process, cmd_err = Command("transmission-show")
 		:args({
 			tostring(self.file.url),
 		})
 		:stdout(Command.PIPED)
 		:spawn()
+
+	if cmd_err then
+		fail("Failed to start `transmission-show` with error: `%s`. Do you have it installed?", cmd_err)
+		return 0
+	end
 
 	local limit = self.area.h
 	-- read and count lines from process
