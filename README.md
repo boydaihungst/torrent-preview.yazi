@@ -6,7 +6,7 @@
 
 ## Requirements
 
-- [yazi](https://github.com/sxyazi/yazi)
+- [yazi >= 0.4](https://github.com/sxyazi/yazi)
 - [transmission-cli](https://github.com/transmission/transmission)
 
 ## Installation
@@ -14,7 +14,7 @@
 ### Linux/MacOS
 
 ```sh
-git clone https://github.com/kirasok/torrent-preview.yazi.git ~/.config/yazi/plugins/torrent-preview.yazi
+ya pack -a boydaihungst/torrent-preview
 ```
 
 ## Usage
@@ -23,6 +23,6 @@ Add this to your `yazi.toml`:
 
 ```toml
 [[plugin.prepend_previewers]]
-mime = "application/x-bittorrent"
+mime = "application/bittorrent"
 run = "torrent-preview"
 ```
