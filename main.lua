@@ -1,3 +1,5 @@
+--- @since 25.2.7
+
 local M = {}
 local function fail(s, ...)
 	ya.notify({ title = "Torrent preview", content = s:format(...), timeout = 5, level = "error" })
