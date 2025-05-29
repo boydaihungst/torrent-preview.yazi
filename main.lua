@@ -1,4 +1,4 @@
---- @since 25.4.8
+--- @since 25.5.28
 
 local M = {}
 local function fail(s, ...)
@@ -7,7 +7,7 @@ end
 function M:peek(job)
 	-- launch process
 	local process, cmd_err = Command("transmission-show")
-		:args({
+		:arg({
 			tostring(job.file.url),
 		})
 		:stdout(Command.PIPED)
@@ -38,10 +38,10 @@ function M:peek(job)
 
 	-- if paged below all output, run peek again with smaller skip
 	if job.skip > 0 and i < job.skip + limit then
-		ya.mgr_emit("peek", { tostring(math.max(0, i - limit)), only_if = tostring(job.file.url), upper_bound = "" })
+		ya.emit("peek", { tostring(math.max(0, i - limit)), only_if = tostring(job.file.url), upper_bound = "" })
 	-- preview torrent
 	else
-		ya.preview_widgets(job, { ui.Text.parse(lines):area(job.area):wrap(ui.Text.WRAP) })
+		ya.preview_widget(job, { ui.Text.parse(lines):area(job.area):wrap(ui.Wrap.YES) })
 	end
 end
 
@@ -49,7 +49,7 @@ function M:seek(job)
 	local h = cx.active.current.hovered
 	if h and h.url == job.file.url then
 		local step = math.floor(job.units * job.area.h / 10)
-		ya.mgr_emit("peek", {
+		ya.emit("peek", {
 			math.max(0, cx.active.preview.skip + step),
 			only_if = job.file.url,
 		})

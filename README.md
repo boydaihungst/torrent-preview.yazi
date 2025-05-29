@@ -6,7 +6,7 @@
 
 ## Requirements
 
-- [yazi >= v25.4.8](https://github.com/sxyazi/yazi)
+- [yazi >= v25.5.28](https://github.com/sxyazi/yazi)
 - [transmission-cli](https://github.com/transmission/transmission)
 
 ## Installation
@@ -14,6 +14,8 @@
 ### Linux/MacOS
 
 ```sh
+ya pkg add boydaihungst/torrent-preview
+# or
 ya pack -a boydaihungst/torrent-preview
 ```
 
