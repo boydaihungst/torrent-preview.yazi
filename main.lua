@@ -41,7 +41,7 @@ function M:peek(job)
 		ya.emit("peek", { tostring(math.max(0, i - limit)), only_if = tostring(job.file.url), upper_bound = "" })
 	-- preview torrent
 	else
-		ya.preview_widget(job, { ui.Text(lines):area(job.area):wrap(ui.Wrap.YES) })
+		ya.preview_widget(job, { ui.Text(lines):area(job.area):wrap(ui.Text.WRAP) })
 	end
 end
 
