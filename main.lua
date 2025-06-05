@@ -1,4 +1,4 @@
---- @since 25.5.28
+--- @since 25.5.31
 
 local M = {}
 local function fail(s, ...)
@@ -41,7 +41,7 @@ function M:peek(job)
 		ya.emit("peek", { tostring(math.max(0, i - limit)), only_if = tostring(job.file.url), upper_bound = "" })
 	-- preview torrent
 	else
-		ya.preview_widget(job, { ui.Text(lines):area(job.area):wrap(ui.Text.WRAP) })
+		ya.preview_widget(job, { ui.Text(lines):area(job.area):wrap(ui.Wrap.YES) })
 	end
 end
 
