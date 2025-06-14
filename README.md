@@ -1,4 +1,10 @@
-# torrent-preview.yazi
+# torrent-preview.yazi (Deprecated)
+
+> [!NOTE]
+> Use [piper.yazi](https://github.com/yazi-rs/plugins/tree/main/piper.yazi#examples) instead: `piper -- transmission-show "$1" --no-header`.
+> 
+> If you want to highlight tracker urls, install glow and use:
+> `piper -- transmission-show "$1" --no-header | CLICOLOR_FORCE=1 glow -w=$w -s=dark -`
 
 [Yazi](https://github.com/sxyazi/yazi) plugin to preview `application/x-bittorrent` files
 
